@@ -13,7 +13,7 @@ const products = [
         id: 2,
         name: "Camisa Técnica Dry-Fit",
         category: "camisas",
-        price: 35,
+        price: 490,
         available: true,
         description: "Tejido transpirable de secado rápido para entrenamiento intenso.",
         image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80"
