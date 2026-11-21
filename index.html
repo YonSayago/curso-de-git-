@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportVibe - Tienda de Equipos Deportivos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navegación Superior -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>Sport<span>Vibe</span></h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar zapatos, camisas, balones...">
+            </div>
+
+            <button class="cart-btn" id="openCartBtn">
+                🛒 Carrito <span class="cart-badge" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="container main-layout">
+        
+        <!-- Panel Lateral de Filtros -->
+        <aside class="sidebar">
+            <div class="filter-header">
+                <h2>Filtros</h2>
+                <button id="resetFiltersBtn" class="btn-link">Limpiar</button>
+            </div>
+
+            <!-- Filtro por Categoría -->
+            <div class="filter-group">
+                <h3>Categoría</h3>
+                <div class="category-list" id="categoryFilters">
+                    <label class="radio-label">
+                        <input type="radio" name="category" value="all" checked>
+                        <span>Todos los productos</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="category" value="zapatos">
+                        <span>Zapatos Deportivos</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="category" value="camisas">
+                        <span>Camisas y Ropa</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="category" value="accesorios">
+                        <span>Accesorios y Equipos</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Filtro por Rango de Precio -->
+            <div class="filter-group">
+                <h3>Precio Máximo: $<span id="priceValue">300</span></h3>
+                <input type="range" id="priceRange" min="10" max="300" value="300" step="5">
+                <div class="price-inputs">
+                    <div>
+                        <label for="minPrice">Mín ($)</label>
+                        <input type="number" id="minPrice" value="0" min="0" max="300">
+                    </div>
+                    <div>
+                        <label for="maxPrice">Máx ($)</label>
+                        <input type="number" id="maxPrice" value="300" min="0" max="300">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro por Disponibilidad -->
+            <div class="filter-group">
+                <h3>Disponibilidad</h3>
+                <select id="availabilitySelect" class="form-select">
+                    <option value="all">Todos (Disponibles y Agotados)</option>
+                    <option value="available">Solo disponibles en stock</option>
+                    <option value="out">Agotados</option>
+                </select>
+            </div>
+        </aside>
+
+        <!-- Catálogo de Productos -->
+        <section class="catalog-section">
+            <div class="catalog-header">
+                <p id="resultsCount">Mostrando 12 productos</p>
+                <div class="sort-box">
+                    <label for="sortSelect">Ordenar por:</label>
+                    <select id="sortSelect" class="form-select">
+                        <option value="featured">Destacados</option>
+                        <option value="price-asc">Precio: Menor a Mayor</option>
+                        <option value="price-desc">Precio: Mayor a Menor</option>
+                        <option value="name-asc">Nombre: A - Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Cuadrícula de Productos -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Se genera dinámicamente con JavaScript -->
+            </div>
+
+            <!-- Mensaje cuando no hay coincidencias -->
+            <div class="empty-state hidden" id="emptyState">
+                <h3>No se encontraron productos</h3>
+                <p>Intenta ajustar el rango de precio o cambiar los filtros seleccionados.</p>
+                <button id="emptyResetBtn" class="btn-primary">Restablecer filtros</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito Lateral (Drawer) -->
+    <div class="cart-overlay hidden" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart-msg">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total estimado:</span>
+                <strong id="cartTotal">$0.00</strong>
+            </div>
+            <button class="btn-primary btn-block" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
